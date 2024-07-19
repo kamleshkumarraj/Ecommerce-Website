@@ -1,8 +1,10 @@
+import CartBody from "../components/CartBody"
 
 function CartList() {
   return (
-    <div>
+    <div className="" id="cart-list-page">
       <h1 className='text-[2rem]'>Cart list pages ....</h1>
+      <CartBody />
     </div>
   )
 }

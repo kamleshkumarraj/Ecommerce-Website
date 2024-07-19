@@ -1,10 +1,25 @@
+import { Outlet } from "react-router-dom"
+import Navbar from "./components/Navbar"
+import { useEffect } from "react"
+import { useDispatch } from "react-redux"
+import apiCall from "./apicall/apiCall"
+import FilterWrapper from "./context/filterDataProvider"
+import Footer from "./components/Footer"
+
 
 function App() {
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(apiCall())
+    
+  },[])
   return (
     <>
-      <h1>Project Setup is completed....</h1>
-      <h1>Tialwind setup is also completed</h1>
+        <FilterWrapper>
+          <Navbar />
+          <Outlet />
+          <Footer />
+        </FilterWrapper>
     </>
   )
 }

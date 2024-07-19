@@ -1,8 +1,9 @@
+import WishlistBody from "../components/WishlistBody"
 
 function Wishlist() {
   return (
     <div>
-    <h1 className="text-[2rem]">Wishlist pages ... </h1>
+        <WishlistBody />
     </div>
   )
 }

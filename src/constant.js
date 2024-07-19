@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://real-time-amazon-data.p.rapidapi.com/search'
