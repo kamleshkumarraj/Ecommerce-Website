@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createSelector } from "@reduxjs/toolkit";
 
-
+function findExisting(state, action){
+    const existing =  state.find((product) => product.id == action.payload.id);
+    return existing;
+}
 const slice = createSlice({
     name : 'cart',
     initialState : [],
@@ -12,27 +14,31 @@ const slice = createSlice({
         removeCartItem :(state , action) =>{
             const filteredData = state.filter((product) => product.id != action.payload.id);
             return filteredData;
+        },
+        increaseCartQuantity : (state , action) =>{
+            const existing  = findExisting(state , action)
+            existing.quantity += 1;
+        },
+        decreaseCartQuantity : (state , action) =>{
+            let existing = findExisting(state , action);
+            existing.quantity -= 1;
+            
+        },
+        checkQty : (state ) => {
+            const filter  = state.filter((product) => product.quantity != 0)
+            return filter;
         }
-    }
+    },
+    
 })
 
 export const cartItemReducer = slice.reducer;
-export const {addCartItem , removeCartItem} = slice.actions
+export const {addCartItem , removeCartItem , increaseCartQuantity , decreaseCartQuantity , checkQty} = slice.actions
 
 // This is selector
 
 export const getCartLen = (state) => state.cartList.length;
 
-
-const getCartDataList = (state) => {
-    const productList = state.productList;
-    return state.cartList.map(({id}) => {
-
-        let filteredData = productList.filter((product) => product.id == id)[0]
-        return {...filteredData , quantity : 1}
-        
-    })
-}
-export const getCartData = createSelector(getCartDataList , (state) => state)
+export const getCartData =  (state) => state.cartList;
 
 

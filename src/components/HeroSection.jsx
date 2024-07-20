@@ -1,13 +1,8 @@
 import Button from "./Button"
 import { FiRefreshCw } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa6";
-import { FaHeart } from "react-icons/fa";
-import { useSelector } from "react-redux";
-import { getWishlistLen } from "../store/Slices/WishlistItem";
 
 function HeroSection() {
-    
-    const wishlistLen = useSelector(getWishlistLen);
   return (
     <div className="max-w-[138rem] grid grid-cols-2 mx-auto bg-fixed">
         <div id="left-section" className="p-[2rem] flex flex-col pt-[4rem] bg-fixed">
@@ -43,7 +38,7 @@ function HeroSection() {
                 </div>
                 <div id="wishlist" className="relative"> 
                     <FaRegHeart size={'2.4rem'} />
-                    <p className="absolute top-[-70%] left-9 text-[1.8rem]">{wishlistLen}</p> 
+                    
                     </div>
                 </header>
                 {
