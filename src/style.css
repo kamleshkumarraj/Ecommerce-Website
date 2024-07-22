@@ -1,6 +1,7 @@
 #hero-section{
     background-image: linear-gradient(rgba(158, 66, 207, 0.438) , rgba(3, 92, 3, 0.402)) , url("./assets/Images/banner-4.jpg");
     background-attachment: fixed;
+    
 }
 #img-anime{
     animation: anime 2s;

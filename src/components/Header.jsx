@@ -3,7 +3,7 @@ import headerlogo from '../assets/Logo/headerlogo.png'
 import { FaCartPlus, FaHeart, FaRegHeart } from "react-icons/fa6";
 import { useSelector } from 'react-redux';
 import { getCartLen } from '../store/Slices/AddCart';
-import { useContext, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { CiSearch } from 'react-icons/ci';
 import { filterData } from '../context/filterDataProvider';
 import { getWishlistLen } from '../store/Slices/WishlistItem';
@@ -13,8 +13,10 @@ function Header() {
   const wishlistLen = useSelector(getWishlistLen);
   const [searchFocus , setSearchFocus]  = useState(false);
   const [borderStyle , setBorderStyle] = useState(["w-[90%] h-[4rem] flex overflow-hidden "])
-  const [,setQuery] = useContext(filterData)
+  const {setQuery , baseUrl , setCartQuery , setWishlistQuery , inputValue , setInputValue } = useContext(filterData)
+  const inputFiled = useRef();
   return (
+    
     
     <div className="sticky top-12 max-w-[138rem] mx-auto my-0 flex px-[2rem] py-[1.5rem] items-center justify-between bg-[#f0f9f7]">
         <div id="logo" className='w-[15rem] hover:cursor-pointer'>
@@ -28,16 +30,25 @@ function Header() {
                     <CiSearch size={'2.4rem'} style={{margin : '0 auto'}}/>
                 </div> : ''
                 }
-                <div id="input-box" className="w-[100%] h-[100%] " >
-                    <input type="text" className="w-[100%] h-[100%] focus:outline-none border-r-[1px] border-r-[#00000048] text-[1.9rem] px-[1rem] " placeholder="Search product by title ...." onFocus={() =>{
+                <div id="input-box" className="w-[100%] h-[100%] "  ref={inputFiled}>
+                    
+                    <input type="text" value={inputValue} className="w-[100%] h-[100%] focus:outline-none border-r-[1px] border-r-[#00000048] text-[1.9rem] px-[1rem] " placeholder="Search product by title ...." onFocus={() =>{
                       setSearchFocus(true);
                       setBorderStyle([...borderStyle , "border-[2px] border-[#8DB0DB] rounded-l-[4rem]"])
                     }} onBlur={() =>{
                       setSearchFocus(false)
                       setBorderStyle(["w-[90%] h-[4rem] flex overflow-hidden "])
                     }} onInput={(e) => {
-                      
-                      setQuery(e.target.value)
+                        setInputValue(e.target.value)
+                          if(baseUrl == 'http://localhost:5173/')
+                              {
+                              setQuery(e.target.value)}
+                          else if(baseUrl== 'http://localhost:5173/cart-pages'){
+                              setCartQuery(e.target.value)
+                          }
+                          else if(baseUrl == 'http://localhost:5173/wishlist-pages'){
+                            setWishlistQuery(e.target.value);
+                          }
                     }}/>
                 </div>
             </div>
@@ -51,7 +62,14 @@ function Header() {
         <div id="menu" className='font-[500] text-[#000000ac] text-[1.6rem] flex gap-[2.5rem] hover:cursor-pointer'>
             <Link>Home</Link>
             <Link>Details </Link>
-            <Link to={'/wishlist-pages'} className='flex'>
+            <Link to={'/wishlist-pages'} className='flex' onClick={() => 
+              {
+                setInputValue('')
+                setQuery('')
+                setCartQuery('')
+                setWishlistQuery('')
+              }
+          }>
                   <span>Wishlistpage</span>
                   <div id="wishlist" className="relative"> 
                   {
@@ -61,7 +79,14 @@ function Header() {
                   
                   </div> 
             </Link> 
-            <Link to={'/cart-pages'} className='flex'>
+            <Link to={'/cart-pages'} className='flex' onClick={() => 
+              {
+                setQuery('')
+                setCartQuery('')
+                setWishlistQuery('')
+                setInputValue('')
+              }
+              }>
                 <span>Cartpage</span>
                 <div><FaCartPlus size={'3rem'}  /></div>
             </Link>

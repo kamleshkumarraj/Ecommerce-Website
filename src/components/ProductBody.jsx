@@ -5,7 +5,7 @@ import LoadingCard from "./LoadingCard";
 import SideMenu from './SideMenu.jsx'
 
 function ProductBody() {
-    const [filteredData] = useContext(filterData)
+    const {filteredData} = useContext(filterData)
     
   return (
     <>
@@ -35,7 +35,14 @@ function ProductBody() {
                         quantity={product.quantity}
                     />
                 )
-            }) : <LoadingCard />
+            }) :<> 
+                <LoadingCard key={1} /> 
+                <LoadingCard key={2}/> 
+                <LoadingCard key={3}/> 
+                <LoadingCard key={4}/> 
+                <LoadingCard key={5}/> 
+                <LoadingCard key={6}/> 
+                </>
         }
     </div>
   

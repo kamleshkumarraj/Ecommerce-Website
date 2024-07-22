@@ -1,8 +1,17 @@
 import Button from "./Button"
 import { FiRefreshCw } from "react-icons/fi";
-import { FaRegHeart } from "react-icons/fa6";
+import { FaHeart, FaRegHeart } from "react-icons/fa6";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllProduct, resetwishlistStatus, setWishlistStatus } from "../store/Slices/ProductList";
+import HeroCard from "./HeroCard";
+import LoadingCard from "./LoadingCard";
+import { addWishlistItem, removeWishlistItem } from "../store/Slices/WishlistItem";
+import { useState } from "react";
 
 function HeroSection() {
+    const [randomIdx , setRandomIdx] = useState(12)
+    const productlist = useSelector(getAllProduct)[randomIdx];
+    const dispatch = useDispatch();
   return (
     <div className="max-w-[138rem] grid grid-cols-2 mx-auto bg-fixed">
         <div id="left-section" className="p-[2rem] flex flex-col pt-[4rem] bg-fixed">
@@ -24,25 +33,53 @@ function HeroSection() {
             </div>
         </div>
 
-        <div id="right-section" className="px-[5rem] pt-[3rem]">
+        <div id="right-section" className="px-[5rem] pt-[5rem]">
             <div id="card" className="w-[100%] ">
 
                 <header className="flex justify-between py-[1.5rem] px-[3rem] font-[600] text-[2.4rem] bg-[#d2c2c27d] rounded-tl-[5rem] items-center">
                 <div id="refresh" className="flex gap-[2rem] items-center ">
                     <p>New Products</p>
                     <p className={`hover:cursor-pointer`} >
-                        <FiRefreshCw size={'2.4rem'} onClick={() => {
-                        }}/>
+                        <span id="refresh"  className={`hover:rotate-180`}>
+                            <FiRefreshCw   size={'2.4rem'} onClick={() => {
+                                setRandomIdx(Math.floor((Math.random()*19 +1)))
+                                
+                            }}/>
+                        </span>
                     </p>
                     
                 </div>
-                <div id="wishlist" className="relative"> 
-                    <FaRegHeart size={'2.4rem'} />
+                <div id="wishlist" className="relative hover:cursor-pointer" onClick={() => {
+                    if(productlist?.wishlistStatus){
+                      dispatch(resetwishlistStatus({id : productlist?.id , status :false}))
+                      dispatch(removeWishlistItem({id : productlist?.id , status : false}))
+                    }
+                    else{
+                      dispatch(addWishlistItem({id : productlist?.id , status : true , quantity :1 , image : productlist?.image , price : productlist?.price , category : productlist?.category , title : productlist?.title , rating : productlist?.rating}))
+                      dispatch(setWishlistStatus({id : productlist?.id , status : true}))
+                    }
+                  }}> 
+                    {
+                        productlist?.wishlistStatus == true ? 
+                            <FaHeart size={'2.4rem'} style={{color : 'red'}}/> :
+                            <FaRegHeart size={'2.4rem'} />
+                        
+                    }
                     
                     </div>
                 </header>
                 {
-                    
+                  productlist && productlist.id > 0 ? <HeroCard 
+                        key={productlist.id}
+                        id={productlist.id}
+                        image= {productlist.image}
+                        title = {productlist.title}
+                        rating={productlist.rating.rate}
+                        cartlistStatus={productlist.cartStatus}
+                        wishlistStatus={productlist.wishlistStatus}
+                        price={productlist.price}
+                        category={productlist.category}
+                   /> : <LoadingCard />
                 }
                 
             </div>

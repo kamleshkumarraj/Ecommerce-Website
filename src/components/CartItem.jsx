@@ -1,14 +1,15 @@
 import { FaRegStar } from "react-icons/fa";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { TiStarFullOutline } from "react-icons/ti";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { checkQty, decreaseCartQuantity, increaseCartQuantity } from "../store/Slices/AddCart";
-import { resetCartStatus, setCartStatus } from "../store/Slices/ProductList";
+import { resetCartStatus} from "../store/Slices/ProductList";
 
+// eslint-disable-next-line react/prop-types
 function CartItem({image , quantity , price , id , category , title , rating}) {
     const starList = [1,2,3,4,5];
+    // eslint-disable-next-line react/prop-types
     const titleNew = title?.slice(0,50)
-    console.log(rating)
     const dispatch = useDispatch();
   return (
     <>

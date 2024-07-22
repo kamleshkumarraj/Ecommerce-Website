@@ -4,6 +4,7 @@ import { getCartLen } from "../store/Slices/AddCart"
 
 function CartList() {
   const cartLen = useSelector(getCartLen)
+  
   return (
     <div className="bg-[#e8b5f039] py-[2rem] " id="cart-list-page" >
         <div id="cart-heading" className="max-w-[138rem] mx-auto px-[4rem] py-[2rem]">

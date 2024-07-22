@@ -1,8 +1,6 @@
 import HeroSection from '../components/HeroSection'
 import ProductBody from "../components/ProductBody"
 import HomeContext from "../context/home.context"
-import Footer from '../components/Footer'
-
 
 
 function Home() {

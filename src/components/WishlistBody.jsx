@@ -1,17 +1,17 @@
-import { useSelector } from "react-redux"
-import {getWishlistData} from '../store/Slices/WishlistItem.js'
 import WishlistItem from "./wishlistItem.jsx"
+import { useContext } from "react"
+import { filterData } from "../context/filterDataProvider.jsx"
 
 function WishlistBody() {
-    const wishlistItem = useSelector(getWishlistData)
+    const {filteredWishlistData} = useContext(filterData)
     let totalPrice = 0;
   return (
     <div id="cart-container" className="w-[100%] rounded-b-[2rem] bg-[#d2aba28f] py-[2rem] mx-[2rem] relative">
       
         <div id="cart-body" className="">
           {
-            wishlistItem.length != 0 ? 
-              wishlistItem.map((wishlistItem) => {
+            filteredWishlistData.length != 0 ? 
+              filteredWishlistData.map((wishlistItem) => {
                 totalPrice = wishlistItem.quantity*wishlistItem.price + totalPrice;
                 return <WishlistItem 
                     id={wishlistItem.id}

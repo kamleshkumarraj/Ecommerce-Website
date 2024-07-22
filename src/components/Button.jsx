@@ -1,5 +1,3 @@
-
-
 // eslint-disable-next-line react/prop-types
 function Button({label ,bgColor , color}) {
   return (

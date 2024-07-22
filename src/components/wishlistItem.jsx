@@ -5,10 +5,11 @@ import { resetwishlistStatus } from "../store/Slices/ProductList";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { checkWishlistQty, decreaseWishlistQuantity, increaseWishlistQuantity } from "../store/Slices/WishlistItem";
 
+// eslint-disable-next-line react/prop-types
 function WishlistItem({image , quantity , price , id , category , title , rating}) {
     const starList = [1,2,3,4,5];
+    // eslint-disable-next-line react/prop-types
     const titleNew = title?.slice(0,50)
-    console.log(rating)
     const dispatch = useDispatch();
   return (
     <>

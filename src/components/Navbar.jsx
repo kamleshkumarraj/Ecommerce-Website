@@ -3,6 +3,7 @@ import { BsHandbagFill } from "react-icons/bs";
 import Header from "./Header";
 
 function Navbar() {
+  
   return (
     <div id="nav-bar" className="w-[100%] bg-[#f9f6f0] sticky top-0 z-[1000000]" >
       <div className='bg-[#28574B] font-[600] text-[1.8rem] mx-auto p-[1.5rem] flex justify-center'>
