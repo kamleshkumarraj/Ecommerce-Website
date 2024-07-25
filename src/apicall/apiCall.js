@@ -2,7 +2,6 @@ import { addCategoryProducts } from "../store/Slices/AllCategoryProducts";
 import { addProducts } from "../store/Slices/ProductList";
 
 const apiCall = (baseUrl , url) =>  (dispatch) =>{
-  console.log(baseUrl)
   url== undefined ? fetch(baseUrl)
         .then(res=>res.json())
         .then((data) => {

@@ -1,92 +1,127 @@
-import { MdHomeFilled , 
-         MdOutlineVideoLibrary ,
-         MdKeyboardArrowRight ,
-         MdOutlineWatchLater ,
-        } from "react-icons/md";        
-import { FiVideo } from "react-icons/fi";
-import { HiOutlineScissors } from "react-icons/hi2";
-import { AiOutlineLike } from "react-icons/ai";
-import { CiVideoOn } from "react-icons/ci";
-import { CgPlayList } from "react-icons/cg";
-import { BsFire } from "react-icons/bs";
-import { RiShoppingBag4Line  } from "react-icons/ri";
+
+import { CiFilter} from "react-icons/ci";
+
 import MenuIcon from "./MenuIcon";
+import { useContext, useEffect, useState } from "react";
+import  {MarketFilter }  from '../context/MarketFilter'
+
 
 function SideMenu() {
+    const categories =
+    ['laptops' ,
+    'smartPhones',
+    'tablets',
+    'womenWatch',
+    'womenShoes',
+    'womensBags',
+    'womensDresses',
+    'womenJwellery',
+    'mensShirts',
+    'mensShoes',
+    'mensWatches' ,
+    'furniture',
+    'groceries',
+    'homeDecoration',
+    'vechile',
+    'moterCycles',
+    'sunglasses',
+    'mobileAccessories',
+    'sportsAccessories',
+    'tops']
+    const priceList = ['Rs. 90 and below' , 'Rs. 100-199','Rs. 200-399','Rs. 400-699' , 'Rs. 700-999','Rs. 1000 and above']
+    const ratingList = ['1 Rating and above' ,'2 Rating and above' ,'3 Rating and above' ,'4 Rating and above' ,'5 Rating']
+    const [categoriesClick , setCategoriesClick] = useState(false);
+    const [priceClick , setPriceClick] = useState(false);
+    const [ratingClick , setRatingClick] = useState(false)
+    const [checkMenu , setCheckMenu ] = useState([]);
+    const [checkPrice , setCheckPrice] = useState([])
+    const [checkRating , setCheckRating] = useState([])
+    const {setCategoriesList , setPriceRange , setRatingRange } = useContext(MarketFilter)
     
+    useEffect(( )=> {
+        setCategoriesList(checkMenu.length >0 ? checkMenu : categories)
+    //
+     },[checkMenu])
+    
+    useEffect(( )=> {
+        setPriceRange(checkPrice.length > 0 ? checkPrice : [])
+    },[checkPrice])
+    useEffect(( )=> {
+        setRatingRange(checkRating.length > 0 ? checkRating : [])
+    },[checkRating])
   return (
-    <div className="w-[100%] max-h-[90vh]  overflow-auto flex flex-col text-[1.5rem] font-[400] ">
-        <MenuIcon 
-            id='home'
-            label="Home">
-            <MdHomeFilled size={'2.4rem'}/>        
+    <div className="w-[100%] max-h-[90vh]  overflow-auto flex flex-col text-[1.5rem] font-[400]">
+        <MenuIcon
+        id='category'
+        label="Filter by categories"
+        icon = <CiFilter size={'2.4rem'}/>  
+        categoriesClick={categoriesClick}
+        setCategoriesClick = {setCategoriesClick}
+        >
+            {
+               categories.length > 0 ? categories.map((category) => {
+                return <div key={category} className="flex checkbox-container gap-[.5rem] hover:cursor-pointer">
+                <input onClick={(e) => {
+                   if(e.target.checked) {setCheckMenu((prev) => [...prev , category])
+                    }
+                    else{
+                        setCheckMenu((prev) => prev.filter((item) => item==category))
+                    }
+                    
+                    
+                }} type="checkbox" id={category} className="checkbox-input hover:cursor-pointer"/>
+                <label className="hover:cursor-pointer w-[100%]" htmlFor={category} >{category}</label>
+                 </div>
+               }) : ''
+            }
         </MenuIcon>
 
-        <MenuIcon 
-            id='short'
-            label="Shorts">
-            <FiVideo size={'2.4rem'}/>     
+        <MenuIcon
+        id='price'
+        label="Filter by price"
+        icon = <CiFilter size={'2.4rem'}/>  
+        priceClick={priceClick}
+        setPriceClick = {setPriceClick}
+        >
+            {
+               priceList.length > 0 ? priceList.map((price) => {
+                return <div key={price} className="flex checkbox-container gap-[.5rem] hover:cursor-pointer" >
+                <input onClick={(e) => {
+                    if(e.target.checked) {setCheckPrice((prev) => [...prev , price])
+                    console.log(checkPrice)
+                    }
+                    else{
+                        setCheckPrice((prev) => prev.filter((item) => item==price))
+                    }
+                }} type="checkbox" id={price} className="checkbox-input hover:cursor-pointer"/>
+                <label className="hover:cursor-pointer w-[100%]" htmlFor={price} >{price}</label>
+                 </div>
+               }) : ''
+            }
         </MenuIcon>
         
-        <MenuIcon 
-            id='short'
-            label="Shorts">
-            <MdOutlineVideoLibrary size={'2.4rem'}/>     
+        <MenuIcon
+        id='rating'
+        label="Filter by rating"
+        icon = <CiFilter size={'2.4rem'}/>  
+        ratingClick={ratingClick}
+        setRatingClick = {setRatingClick}
+        >
+            {
+               ratingList.length > 0 ? ratingList.map((rating) => {
+                return <div key={rating} className="flex checkbox-container gap-[.5rem] hover:cursor-pointer" >
+                <input onClick={(e) => {
+                    if(e.target.checked) {setCheckRating((prev) => [...prev , rating])
+                    }
+                    else{
+                        setCheckRating((prev) => prev.filter((item) => item==rating))
+                    }
+                }} type="checkbox" id={rating} className="checkbox-input hover:cursor-pointer"/>
+                <label className="hover:cursor-pointer w-[100%]" htmlFor={rating} >{rating}</label>
+                 </div>
+               }) : ''
+            }
         </MenuIcon>
-        <hr className="my-[1rem]"/>
-
-        <div id="you" className="flex gap-[1rem] p-[.8rem] hover:bg-[#0000000a]  hover:rounded-[1.2rem] items-center">
-            <p className="text-[1.6rem] font-[500]">You</p>
-            <MdKeyboardArrowRight size={'2.8rem'} style={{position : 'relative', top :'.15rem'}} />
-        </div>
-
-        <MenuIcon 
-            id='playlists'
-            label="Playlists">
-            <CgPlayList  size={'2.4rem'}/>        
-        </MenuIcon>
-
-        <MenuIcon 
-            id='videos'
-            label="Your videos">
-            <CiVideoOn size={'2.4rem'}/>        
-        </MenuIcon>
-
-        <MenuIcon 
-            id='watchLater'
-            label="Watch later">
-            <MdOutlineWatchLater size={'2.4rem'}/>        
-        </MenuIcon>
-
-        <MenuIcon 
-            id='liked video'
-            label="Liked video">
-            <AiOutlineLike size={'2.4rem'}/>        
-        </MenuIcon>
-
-        <MenuIcon 
-            id='clips'
-            label="Clips">
-            <HiOutlineScissors size={'2.4rem'}/>        
-        </MenuIcon>
-        <hr className="my-[1rem]"/>
-
-        <h1 className="p-[1rem] font-[500] text-[1.8rem]">Explore</h1>
-        <MenuIcon 
-            id='trending'
-            label="Trending">
-            <BsFire size={'2.4rem'}/>        
-        </MenuIcon>
-
-        <MenuIcon 
-            id='shopping'
-            label="Shopping">
-            <RiShoppingBag4Line size={'2.4rem'}/>        
-        </MenuIcon>
-
-       
-        <hr className="my-[1rem]"/>
-
         
 
 

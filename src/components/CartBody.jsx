@@ -1,11 +1,11 @@
 
 import CartItem from "./CartItem.jsx";
 import { useContext } from "react";
-import { filterData } from "../context/filterDataProvider.jsx";
+import { AppConotext } from "../context/filterDataProvider.jsx";
 
 function CartBody() {
     let totalPrice = 0;
-    const {filteredCartData} = useContext(filterData)
+    const {filteredCartData} = useContext(AppConotext)
     
   return (
     <div id="cart-container" className="w-[100%] rounded-b-[2rem] bg-[#97a0aee2] py-[2rem] mx-[2rem] relative">
@@ -26,12 +26,12 @@ function CartBody() {
                     rating={cartItem.rating}
                 />
               })  
-            : "Loading ...."
+            : <h1 className="text-[4rem] text-center py-[4rem] font-[600]">No Item Available in Your Cart List !</h1>
           }
         </div>
 
         <div id="price" className="flex justify-end px-[4rem]">
-            <p className=" text-[2rem] font-[500]">Total Price = ₹{totalPrice}</p>
+            { totalPrice>0 && <p className=" text-[2rem] font-[500]">Total Price = ₹{totalPrice}</p>}
         </div>
       
        

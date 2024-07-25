@@ -9,24 +9,4 @@
     animation-fill-mode: both;
 
 }
-@keyframes anime {
-    0%{
-        /* width: 0%; */
-        opacity: 40%;
-        
-    }
-    25%{
-        opacity: 30%;
-    }
-    50%{
-        opacity: 60%;
-    }
-    75%{
-        opacity: 75%;
-    }
-    100%{
-        /* width: 100%; */
-        opacity: 100%;
-        
-    }
-}
+

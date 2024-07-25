@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { getCartLen } from '../store/Slices/AddCart';
 import { useContext, useRef, useState } from 'react';
 import { CiSearch } from 'react-icons/ci';
-import { filterData } from '../context/filterDataProvider';
+import { AppConotext } from '../context/filterDataProvider';
 import { getWishlistLen } from '../store/Slices/WishlistItem';
 
 function Header() {
@@ -13,11 +13,9 @@ function Header() {
   const wishlistLen = useSelector(getWishlistLen);
   const [searchFocus , setSearchFocus]  = useState(false);
   const [borderStyle , setBorderStyle] = useState(["w-[90%] h-[4rem] flex overflow-hidden "])
-  const {setQuery , baseUrl , setCartQuery , setWishlistQuery , inputValue , setInputValue } = useContext(filterData)
+  const {setQuery , baseUrl , setCartQuery , setWishlistQuery , inputValue , setInputValue } = useContext(AppConotext)
   const inputFiled = useRef();
   return (
-    
-    
     <div className="sticky top-12 max-w-[138rem] mx-auto my-0 flex px-[2rem] py-[1.5rem] items-center justify-between bg-[#f0f9f7]">
         <div id="logo" className='w-[15rem] hover:cursor-pointer'>
             <img className='w-[100%]' src={headerlogo} alt="Header Logo" />
@@ -60,8 +58,8 @@ function Header() {
         </div>
 
         <div id="menu" className='font-[500] text-[#000000ac] text-[1.6rem] flex gap-[2.5rem] hover:cursor-pointer'>
-            <Link>Home</Link>
-            <Link>Details </Link>
+            <Link to={'/'} >Home</Link>
+            <Link to={'/market-place'}>Marketplace </Link>
             <Link to={'/wishlist-pages'} className='flex' onClick={() => 
               {
                 setInputValue('')

@@ -1,41 +1,53 @@
-import Banner1 from '../../assets/Images/banner-1.jpg'
-import Banner2 from '../../assets/Images/banner-2.jpg'
-import Banner3 from '../../assets/Images/banner-3.jpg'
-import Banner4 from '../../assets/Images/banner-4.jpg'
-import Banner5 from '../../assets/Images/banner-5.jpg'
-import Banner6 from '../../assets/Images/banner-6.jpg'
-import Banner7 from '../../assets/Images/banner-7.jpg'
-import Banner8 from '../../assets/Images/banner-8.jpg'
-
-
-
+/* eslint-disable react/prop-types */
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 import './styles.css';
 
 // import required modules
-import { Autoplay } from 'swiper/modules';
+import { Autoplay , FreeMode , Pagination } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
-function Slider() {
-    const sliderList = [Banner1 , Banner2 , Banner3 , Banner4 , Banner5 , Banner6 , Banner7 , Banner8];
+
+function Slider({data  , setImg  , category}) {
   return (
-    <div className='absolute w-[100%] z-[-100] object-cover'>
+    <div className=''>
     <Swiper 
+        slidesPerView={6}
         loop = {true}
         autoplay={{
-        delay: 2500,
+        delay: 1000,
         disableOnInteraction: false,
       }}
-       modules={[ Autoplay]} className="mySwiper">
+      
+      freeMode = {true}
+      pagination = {{
+        clickable : true
+      }}
+    
+       modules={[ Autoplay , FreeMode , Pagination]} className="mySwiper">
         {
-            sliderList.map((banner , idx) => {
-                return <SwiperSlide key={idx}>
-                    <img className='w-[100%] h-[100%] object-contain' src={banner} alt="Banner-image" />
+            data.length > 0  && data?.map((item , idx) => {
+                return <SwiperSlide key={idx} onClick={() => {
+                  
+                  setImg(item.images[0])
+                }}>
+                
+                  <Link state={{id : item.id , category}} >
+                   <div  href="#top-bar" id="card" className='overflow-hidden max-w-[30rem] min-h-[35rem] rounded-[1.5rem] border-[.5px] border-[#00000018] p-[2rem] mx-[1rem] '>
+                      <div id="img" className='w-[100%] max-h-[20%]'>
+                        <img className='w-[25rem] h-[20rem]' src={item.images[0]} alt="" />
+                      </div>
+                      <p>${item.price}</p>
+                      <p className='text-[2rem]'>{item.title}</p>
+                   </div>
+                  </Link>
+                  
                 </SwiperSlide>
             })
         }

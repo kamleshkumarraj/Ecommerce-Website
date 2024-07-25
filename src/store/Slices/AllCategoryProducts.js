@@ -2,11 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const dispatchProducts = (state , action) => {
-    // console.log(action.payload.category)
-    // console.log(action.payload)
     switch(action.payload[0].category){
         case "furniture" : {
-            console.log("Action calling ..")
             state.furniture = [...action.payload]
             return state;
         }
@@ -70,9 +67,10 @@ const dispatchProducts = (state , action) => {
             return state;
         }
         
-    }
+    }}
+function findExistingProduct(state , action) {
+    return state[action.payload.category].find((item) => item.id == action.payload.id)
 }
-
 const slice = createSlice({
     name : 'products',
     initialState :{
@@ -100,11 +98,45 @@ const slice = createSlice({
     },
     reducers :{ 
         addCategoryProducts : (state , action) =>{
-            console.log('actionDispatches..')
             dispatchProducts(state , action)
+        },
+        setCategoryCartStatus : (state , action) => {
+            const existing = findExistingProduct(state,action)
+            if(existing){
+                existing.cartStatus = action.payload.status;
+            }
+
+        },
+        resetCategoryCartStatus : (state ,action) =>{
+            const existing = findExistingProduct(state ,action)
+            if(existing){
+                existing.cartStatus = action.payload.status;
+            }
+        },
+        setCategoryWishlistStatus : (state , action) => {
+            const existing = findExistingProduct(state,action)
+            if(existing){
+                existing.wishlistStatus = action.payload.status;
+            }
+
+        },
+        resetCategorywishlistStatus : (state ,action) =>{
+            const existing = findExistingProduct(state ,action)
+            if(existing){
+                existing.wishlistStatus = action.payload.status;
+            }
         }
     }
 })
 
 export const categoryReducers = slice.reducer
-export const {addCategoryProducts} = slice.actions
+export const {addCategoryProducts , setCategoryCartStatus , setCategoryWishlistStatus , resetCategoryCartStatus , resetCategorywishlistStatus} = slice.actions
+
+export const getAllCategoriesProducts = (state) => state.categoryProducts;
+
+//selectors
+
+export const getSpecificProduct = (category , id) => (state) =>{
+    return state.categoryProducts[category].find((product) => product.id == id)
+    
+}

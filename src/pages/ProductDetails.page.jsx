@@ -1,10 +1,13 @@
-
+import ProductsDetails from "../components/ProductsDetails"
+import DetailsPage from "../context/DetailsPageContext"
 
 function ProductDetails() {
   return (
-    <div>
-    <h1 className="text-[2rem]">Product details pages ... </h1>
-    </div>
+    <DetailsPage>
+      <div id="product-details">
+        <ProductsDetails />
+      </div>
+    </DetailsPage>
   )
 }
 

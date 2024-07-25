@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { resetwishlistStatus } from "../store/Slices/ProductList";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { checkWishlistQty, decreaseWishlistQuantity, increaseWishlistQuantity } from "../store/Slices/WishlistItem";
+import { resetCategorywishlistStatus } from "../store/Slices/AllCategoryProducts";
 
 // eslint-disable-next-line react/prop-types
 function WishlistItem({image , quantity , price , id , category , title , rating}) {
@@ -47,9 +48,10 @@ function WishlistItem({image , quantity , price , id , category , title , rating
             
             <p className="text-[2rem] font-[600]">{quantity}</p>
             
-            <div id="decreaseBtn" className="font-[600] text-[2.8rem] p-[.5rem] grid place-content-center py-[-2rem] border-[1px] rounded-[.5rem] hover:cursor- border-[#bb00ff]" onClick={() => {
+            <div id="decreaseBtn" className="hover:cursor-pointer font-[600] text-[2.8rem] p-[.5rem] grid place-content-center py-[-2rem] border-[1px] rounded-[.5rem] hover:cursor- border-[#bb00ff]" onClick={() => {
                 if(quantity == 1){
                     dispatch(resetwishlistStatus({status : false , id}))
+                    dispatch(resetCategorywishlistStatus({id , status : false , category}))
                 }
                 dispatch(decreaseWishlistQuantity({id}))
                 dispatch(checkWishlistQty())

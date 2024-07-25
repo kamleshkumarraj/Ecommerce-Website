@@ -1,21 +1,17 @@
 import { useContext } from "react";
 import Card from "./Card";
-import { filterData } from "../context/filterDataProvider";
+import { AppConotext} from "../context/filterDataProvider";
 import LoadingCard from "./LoadingCard";
 import SideMenu from './SideMenu.jsx'
 
 function ProductBody() {
-    const {filteredData} = useContext(filterData)
+    const {filteredData , toggleBar} = useContext(AppConotext)
     
   return (
     <>
-    <h1 className="font-[600] text-[3.4rem] text-center p-[2rem] bg-[#00000021]">Products List</h1>
-    <div id="products-body" className="flex  bg-[#EFF3F6] relative" >
-        <div id="product-nav" className="w-[20%] bg-[white] sticky top-[17%] left-0 max-h-[90vh] px-[2rem]">
-            <SideMenu />
-        </div>
+        <div id="market-body" className="flex ">
         
-        <div id="product-container" className="w-[85%] mx-auto px-[2rem] py-[1.5rem] grid grid-cols-3 gap-[4rem] max">
+            <div id="product-container" className="w-[100%] mx-auto py-[1.5rem] grid grid-cols-4 gap-[2rem] max">
         {
             filteredData.length != 0 ? filteredData.map((product) => {
                 
@@ -44,9 +40,11 @@ function ProductBody() {
                 <LoadingCard key={6}/> 
                 </>
         }
-    </div>
-  
+            </div>
         </div>
+        
+  
+        
     </>
     )
   }      

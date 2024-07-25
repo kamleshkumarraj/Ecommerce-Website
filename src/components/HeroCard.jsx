@@ -57,14 +57,14 @@ function HeroCard({id , image , price , title , description , rating , cartlistS
         <div id="cart-bnt" onClick={cartHandler}>
             <Button 
                 label={`${cartlistStatus == true ? 'Remove to Cartlist' : 'Add to Cartlist'}`}
-                bgColor={'bg-[#12030012]'}
+                bgColor={'bg-[#123f65]'}
                 
             />
         </div>
         <div id="wishlist-btn" onClick={wishListHandler}>
             <Button 
                 label={`${wishlistStatus == true ? 'Remove to Wishlst' : 'Add to Wishlist'}`}
-                bgColor={'bg-[#12030012]'}
+                bgColor={'bg-[#341]'}
                 
             />
         </div>

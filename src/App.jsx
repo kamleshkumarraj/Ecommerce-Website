@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import apiCall from "./apicall/apiCall";
 import FilterWrapper from "./context/filterDataProvider";
 import Footer from "./components/Footer";
-import { BASE_URL } from "./constant";
 
 function App() {
   const productUrl = "https://fakestoreapi.com/products";

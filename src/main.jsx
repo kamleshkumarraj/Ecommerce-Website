@@ -10,6 +10,9 @@ import Wishlist from './pages/Wishlist.page.jsx';
 import { Provider } from 'react-redux';
 import store from './store/store.js'
 import './style.css'
+import ProductList from './pages/ProductList.jsx';
+import ProductsDetails from './pages/ProductDetails.page.jsx';
+import MarketPage from './pages/MarketPage.jsx';
 
 const router = createBrowserRouter([{
   path : '/',
@@ -31,7 +34,20 @@ const router = createBrowserRouter([{
    {
       path : '/wishlist-pages',
       element : <Wishlist />
-   }]
+   },
+   {
+      path : '/:productlist-pages',
+      element : <ProductList />
+   },
+   {
+      path : '/:productlist-pages/:product-details',
+      element : <ProductsDetails /> 
+   },
+   {
+      path : '/market-place',
+      element : <MarketPage />
+   }
+]
 }])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

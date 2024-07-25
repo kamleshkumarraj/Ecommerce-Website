@@ -1,9 +1,9 @@
 import WishlistItem from "./wishlistItem.jsx"
 import { useContext } from "react"
-import { filterData } from "../context/filterDataProvider.jsx"
+import { AppConotext } from "../context/filterDataProvider.jsx"
 
 function WishlistBody() {
-    const {filteredWishlistData} = useContext(filterData)
+    const {filteredWishlistData} = useContext(AppConotext)
     let totalPrice = 0;
   return (
     <div id="cart-container" className="w-[100%] rounded-b-[2rem] bg-[#d2aba28f] py-[2rem] mx-[2rem] relative">
@@ -25,11 +25,11 @@ function WishlistBody() {
                     
                 />
               })  
-            : "Loading ...."
+            : <h1 className="text-[4rem] text-center py-[4rem] font-[600]">No Item Available in Your Wishlist !</h1>
           }
           </div>
         <div id="price" className="flex justify-end px-[4rem]">
-            <p className=" text-[2rem] font-[500]">Total Price = ₹{totalPrice}</p>
+            {totalPrice > 0 && <p className=" text-[2rem] font-[500]">Total Price = ₹{totalPrice}</p>}
         </div>
       
        
