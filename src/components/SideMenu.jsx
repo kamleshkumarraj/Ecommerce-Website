@@ -28,7 +28,7 @@ function SideMenu() {
     'mobileAccessories',
     'sportsAccessories',
     'tops']
-    const priceList = ['Rs. 90 and below' , 'Rs. 100-199','Rs. 200-399','Rs. 400-699' , 'Rs. 700-999','Rs. 1000 and above']
+    const priceList = ['Rs. 99 and below' , 'Rs. 100-199','Rs. 200-399','Rs. 400-699' , 'Rs. 700-999','Rs. 1000 and above']
     const ratingList = ['1 Rating and above' ,'2 Rating and above' ,'3 Rating and above' ,'4 Rating and above' ,'5 Rating']
     const [categoriesClick , setCategoriesClick] = useState(false);
     const [priceClick , setPriceClick] = useState(false);
@@ -65,7 +65,7 @@ function SideMenu() {
                    if(e.target.checked) {setCheckMenu((prev) => [...prev , category])
                     }
                     else{
-                        setCheckMenu((prev) => prev.filter((item) => item==category))
+                        setCheckMenu((prev) => prev.filter((item) => item!=category))
                     }
                     
                     
@@ -91,7 +91,7 @@ function SideMenu() {
                     console.log(checkPrice)
                     }
                     else{
-                        setCheckPrice((prev) => prev.filter((item) => item==price))
+                        setCheckPrice((prev) => prev.filter((item) => item!=price))
                     }
                 }} type="checkbox" id={price} className="checkbox-input hover:cursor-pointer"/>
                 <label className="hover:cursor-pointer w-[100%]" htmlFor={price} >{price}</label>
@@ -111,12 +111,10 @@ function SideMenu() {
                ratingList.length > 0 ? ratingList.map((rating) => {
                 return <div key={rating} className="flex checkbox-container gap-[.5rem] hover:cursor-pointer" >
                 <input onClick={(e) => {
-                    if(e.target.checked) {setCheckRating((prev) => [...prev , rating])
+                    if(e.target.checked) {setCheckRating(() => [rating])
                     }
-                    else{
-                        setCheckRating((prev) => prev.filter((item) => item==rating))
-                    }
-                }} type="checkbox" id={rating} className="checkbox-input hover:cursor-pointer"/>
+                    
+                }} type="radio" name="radio" radioGroup="rating" id={rating} className="checkbox-input hover:cursor-pointer"/>
                 <label className="hover:cursor-pointer w-[100%]" htmlFor={rating} >{rating}</label>
                  </div>
                }) : ''

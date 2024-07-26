@@ -7,14 +7,13 @@ import { RxCross1 } from "react-icons/rx"
 import { FaBars } from "react-icons/fa6"
 import  {MarketFilter }  from '../context/MarketFilter'
 
+
 function MarketBody() {
-  const {categoriesList , allCategoriesProducts , priceRange , ratingRange } = useContext(MarketFilter)
+  const {categoriesList , allCategoriesProducts , priceRange , filteredData , ratingRange , filteredRatingData } = useContext(MarketFilter)
   const {toggleBar , setToggleBar} = useContext(AppConotext)
-  
-    console.log(priceRange)
-    console.log(ratingRange)
-    console.log(categoriesList)
-    
+  console.log(ratingRange)
+
+   
     
   return (
     <>
@@ -41,24 +40,28 @@ function MarketBody() {
                 {
                     
                     categoriesList.map((category) => {
-                        if(allCategoriesProducts[category]?.length > 0){
-                            let items = allCategoriesProducts[category]
-                            return items.map((item , idx) => {
+                        if(allCategoriesProducts[category]?.length > 0){ 
+                          
+                            let items = priceRange.length > 0 ? (ratingRange.length > 0 ? filteredRatingData[category] : filteredData[category] ) :
+                            ratingRange.length > 0 ? filteredRatingData[category] : allCategoriesProducts[category] 
+                            
+                            return items.length != 0 ? items?.map((item , idx) => {
                                 return <MarketCart 
                                 id={item.id}
                                 key = {idx}
                                 category={category}
                                 price={item.price}
                                 title={item.title}
-                                image={item.images[0]}
+                                image={item?.images[0]}
                                 product={item}
                                 rating={item.rating}
                                 wishlistStatus={item.wishlistStatus}
                                 cartlistStatus={item.cartStatus}
                                 />
-                            })
+                            }) :''
                             
                         }
+                        
                     })
                 }
                 

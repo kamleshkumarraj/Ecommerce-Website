@@ -3,7 +3,7 @@ function LoadingCard() {
   return (
     <>
     <div id="product" className="h-[45rem] shadow-2xl rounded-[2rem] bg-[white] relative overflow-hidden p-[1rem] w-[100%]" >
-        <div id="img-anime" className=" bg-[#15151542] z-[100000] rounded-[1.5rem] h-[50%] grid place-content-center">
+        <div id="img-anime" className=" bg-[#15151542] z-[100000] rounded-[1.5rem] h-[50%] grid place-content-center min-w-[100%]">
         <p className="text-[3rem] font-[500]">Loading .....</p>
         </div>
       

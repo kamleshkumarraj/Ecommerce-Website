@@ -8,7 +8,7 @@ import { addWishlistItem, removeWishlistItem } from "../store/Slices/WishlistIte
 import { addCartItem, removeCartItem } from "../store/Slices/AddCart";
 
 // eslint-disable-next-line react/prop-types
-function MarketCart({product , id , rating , image , price ,title , category , wishlistStatus , cartlistStatus}) {
+function MarketCart({ id , rating , image , price ,title , category , wishlistStatus , cartlistStatus}) {
     const dispatch = useDispatch();
     
     const wishListHandler = (category) =>{
@@ -53,7 +53,7 @@ function MarketCart({product , id , rating , image , price ,title , category , w
             {
                 starList.length > 0 ? starList.map((Star , idx) => {
                   
-                    if(newRating > 0){
+                    if(newRating >=1){
                         newRating --;
                         return <TiStarFullOutline key={idx} size={'2.4rem'} style={{color : 'green'}} />;
                     }

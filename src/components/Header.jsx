@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import headerlogo from '../assets/Logo/headerlogo.png'
 import { FaCartPlus, FaHeart, FaRegHeart } from "react-icons/fa6";
 import { useSelector } from 'react-redux';
@@ -15,12 +15,14 @@ function Header() {
   const [borderStyle , setBorderStyle] = useState(["w-[90%] h-[4rem] flex overflow-hidden "])
   const {setQuery , baseUrl , setCartQuery , setWishlistQuery , inputValue , setInputValue } = useContext(AppConotext)
   const inputFiled = useRef();
+  const location = useLocation()
   return (
-    <div className="sticky top-12 max-w-[138rem] mx-auto my-0 flex px-[2rem] py-[1.5rem] items-center justify-between bg-[#f0f9f7]">
+    <div className="sticky top-12 max-w-[138rem] mx-auto my-0 flex px-[2rem] py-[1.5rem] items-center justify-between bg-[#c9bfa9]">
         <div id="logo" className='w-[15rem] hover:cursor-pointer'>
             <img className='w-[100%]' src={headerlogo} alt="Header Logo" />
         </div>
-        
+      {  
+        location.pathname == '/market-place' || location.pathname== '/cart-pages' || location.pathname== '/wishlist-pages'?
         <div id="search-input" className="w-[60rem] border-[1px] border-[#00000054] rounded-[5rem] flex items-center bg-[#00000009] overflow-hidden ">
             <div id="search-box" className={borderStyle.join(' ')} >
                 {
@@ -55,7 +57,7 @@ function Header() {
               <CiSearch size={'2.4rem'} style={{margin : '0 auto'}}/>
             </div>
             
-        </div>
+        </div> : ''}
 
         <div id="menu" className='font-[500] text-[#000000ac] text-[1.6rem] flex gap-[2.5rem] hover:cursor-pointer'>
             <Link to={'/'} >Home</Link>
