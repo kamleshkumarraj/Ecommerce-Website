@@ -6,7 +6,7 @@ function MainBody() {
     const allCategoriesProducts = useSelector(getAllCategoriesProducts)
     const categoriesList = Object.keys(allCategoriesProducts)
   return (
-    <div id="main-product-section" className="grid grid-cols-3 px-[4rem] py-[2rem] gap-[2rem]">
+    <div id="main-product-section" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  py-[2rem] gap-[2rem]">
     
       {
         categoriesList.map((categoryItem , id) => {

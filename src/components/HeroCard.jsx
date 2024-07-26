@@ -32,9 +32,9 @@ function HeroCard({id , image , price , title , description , rating , cartlistS
     }
 
   return (
-    <div id="product" className="py-[1rem] shadow-lg px-[2rem] grid grid-cols-2 h-[40rem] bg-[#ffffffc3] overflow-hidden rounded-br-[5rem]" key={id}>
-    <div id="img" className='w-[80%] h-[75%] rounded-[2rem] bg-[white] grid place-content-center mt-[3rem]'>
-        <img className="w-[100%] h-[100%] rounded-[2rem] " src={image} alt="" /> 
+    <div id="product" className="py-[1rem] shadow-lg px-[2rem] grid-cols-1 items-center justify-center grid sm:grid-cols-2 xl:h-[43rem] lg:h-[50rem] bg-[#ffffffc3] overflow-hidden rounded-br-[5rem] max-h-[55rem]" key={id}>
+    <div id="img" className='w-[50%] sm:w-[100%] sm:h-[75%] rounded-[2rem] bg-[white] grid place-content-center mt-[3rem] mx-auto sm:mx-0 lg:mt-[1rem] sm:px-[1rem] sm:my-0'>
+        <img className=" w-[100%] sm:h-[100%] rounded-[2rem] " src={image} alt="" /> 
     </div>
     <div id="details" className='p-[1rem] flex flex-col justify-between py-[2rem]'>
         <p className="text-[2rem] front-[500] my-[1rem]">₹{price}</p>

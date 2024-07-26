@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import headerlogo from '../assets/Logo/headerlogo.png'
-import { FaCartPlus, FaHeart, FaRegHeart } from "react-icons/fa6";
+import { FaBars, FaCartPlus, FaHeart, FaRegHeart } from "react-icons/fa6";
 import { useSelector } from 'react-redux';
 import { getCartLen } from '../store/Slices/AddCart';
 import { useContext, useRef, useState } from 'react';
@@ -17,7 +17,7 @@ function Header() {
   const inputFiled = useRef();
   const location = useLocation()
   return (
-    <div className="sticky top-12 max-w-[138rem] mx-auto my-0 flex px-[2rem] py-[1.5rem] items-center justify-between bg-[#c9bfa9]">
+    <div className="sticky top-12 max-w-[138rem] mx-auto my-0 flex px-[4rem] py-[1.5rem] items-center justify-between bg-[#c9bfa9]">
         <div id="logo" className='w-[15rem] hover:cursor-pointer'>
             <img className='w-[100%]' src={headerlogo} alt="Header Logo" />
         </div>
@@ -59,7 +59,7 @@ function Header() {
             
         </div> : ''}
 
-        <div id="menu" className='font-[500] text-[#000000ac] text-[1.6rem] flex gap-[2.5rem] hover:cursor-pointer'>
+        <div id="menu" className='font-[500] text-[#000000ac] text-[1.6rem] flex gap-[2.5rem] hover:cursor-pointer hidden'>
             <Link to={'/'} >Home</Link>
             <Link to={'/market-place'}>Marketplace </Link>
             <Link to={'/wishlist-pages'} className='flex' onClick={() => 
@@ -91,6 +91,10 @@ function Header() {
                 <div><FaCartPlus size={'3rem'}  /></div>
             </Link>
             <Link className='relative top-[-1.2rem] left-[-2.2rem]' id="cartCount">{cartlen}</Link>
+        </div>
+
+        <div id="menu-bar" className='md:hidden'>
+          <FaBars size={'2.4rem'}/>
         </div>
 
     </div>

@@ -13,9 +13,9 @@ function HeroSection() {
     const productlist = useSelector(getAllProduct)[randomIdx];
     const dispatch = useDispatch();
   return (
-    <div className="max-w-[138rem] grid grid-cols-2 mx-auto bg-fixed">
-        <div id="left-section" className="p-[2rem] flex flex-col pt-[4rem] bg-fixed">
-            <div id="subheading" className="bg-[white] text-[1.8rem] font-[400] mt-[6rem] max-w-[27rem]">
+    <div className="lg:max-w-[138rem]  sm:grid-cols-1 grid md:grid-cols-2  mx-auto bg-fixed sm:px-[0rem] ">
+        <div id="left-section" className="lg:p-[2rem] p-[2rem] flex flex-col lg:pt-[4rem] bg-fixed sm:items-start items-center">
+            <div id="subheading" className="bg-[white] text-[1.8rem] font-[400] md:mt-[6rem] mt-[3rem] max-w-[27rem]">
                 <h1>#1 ECOMMERCE PLATFORM 2024</h1>
             </div>
             <div id="heading" className="font-[600] mt-[2rem]">

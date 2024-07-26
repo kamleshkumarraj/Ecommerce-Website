@@ -6,8 +6,8 @@ export default function Footer() {
         <div id="footer-head" className="bg-[#485769] py-[1.5rem]">
             <p className="text-center text-[white] text-[1.35rem] font-[600]">Back to Top</p>
         </div>
-        <div id="footer-middle" className="bg-[#232F3E]">
-            <div id="footer-container" className="text-[1.4rem] text-[#BABABF] flex max-w-[100rem] py-[5rem] mx-auto justify-between font-[500]">
+        <div id="footer-middle" className="bg-[#232F3E] p-[2rem]">
+            <div id="footer-container" className=" text-[1.4rem] text-[#BABABF] flex max-w-[100rem] py-[5rem] mx-auto justify-between font-[500] flex-wrap gap-[3rem] items-center">
                 <div id="get-know-more" className="flex flex-col gap-[.5rem]">
                     <h1 className="text-[white] text-[1.6rem] font-[600]">Get To Know Us</h1>
                     <p>About Us</p>

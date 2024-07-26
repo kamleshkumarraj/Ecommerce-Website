@@ -7,10 +7,10 @@ function Home() {
   return (
     <HomeContext>
     
-      <div id="hero-section" className='h-[85vh]'>
+      <div id="hero-section" className='lg:h-[85vh] px-[2rem] pb-[4rem]'>
         <HeroSection />
       </div>
-      <div id="div" className='bg-blue-50'>
+      <div id="div" className='bg-blue-50 px-[2rem]'>
       <div id="product-body" className='max-w-[142rem] mx-auto '>
           <h1 className='text-[2.4rem] font-[600] px-[2rem] py-[2rem]'>All categories products</h1>
           <div id="products-body" className="flex x relative w-[100%]" >
