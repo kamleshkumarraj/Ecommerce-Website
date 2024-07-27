@@ -50,7 +50,7 @@ function SideMenu() {
         setRatingRange(checkRating.length > 0 ? checkRating : [])
     },[checkRating])
   return (
-    <div className="w-[100%] max-h-[90vh]  overflow-auto flex flex-col text-[1.5rem] font-[400]">
+    <div className="w-[100%] max-h-[90vh]  flex flex-col text-[1.5rem] font-[400]">
         <MenuIcon
         id='category'
         label="Filter by categories"

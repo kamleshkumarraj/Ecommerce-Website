@@ -9,4 +9,6 @@
     animation-fill-mode: both;
 
 }
-
+#humbuger-menu,#menu{
+    transition: all .5s linear;
+}

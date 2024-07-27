@@ -34,7 +34,7 @@ function MarketCart({ id , rating , image , price ,title , category , wishlistSt
     const starList = [1,2,3,4,5]
     let newRating = rating;
   return (
-    <div id="product" className="overflow-hidden px-[2rem] shadow-2xl bg-[white] rounded-[2rem] py-[2rem] flex flex-col justify-center relative" key={id}  >
+    <div id="product" className="overflow-hidden px-[2rem] shadow-2xl bg-[white] rounded-[2rem] max-w-[1fr]  py-[2rem] flex flex-col justify-center relative" key={id}  >
       <img className="max-h-[20rem] mx-auto " src={image} alt="" /> 
       <p className="text-[2rem] front-[500] my-[1rem]">₹{price}</p>
       <div id="weashlist-heart" className="hover:cursor-pointer" 

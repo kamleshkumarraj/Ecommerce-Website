@@ -1,4 +1,4 @@
-
+//imported areas
 import MarketCart from "./MarketCart"
 import SideMenu from "./SideMenu"
 import { useContext} from "react"
@@ -17,7 +17,7 @@ function MarketBody() {
     
   return (
     <>
-    <div id='product-header' className="flex sticky top-[17%] z-[100000] bg-[white]">
+    <div id='product-header' className="flex sticky top-[12.7%] xl:top-[16.8%] z-[100000] bg-[#20201f] text-white">
     <div className="my-[2rem] mx-[4rem] hover:cursor-pointer">
     {
       toggleBar == false ? <RxCross1 size={'2.4rem'} onClick={() => {
@@ -30,13 +30,13 @@ function MarketBody() {
     </div>
     <h1 className="mx-auto font-[600] text-[3.4rem] text-center ">Buy now</h1>
     </div>
-    <div id="market" className="flex bg-sky-100 ">
+    <div id="market" className="relative flex overflow-hidden bg-sky-100 py-[2rem]">
         
-        <div id="product-nav" className={toggleBar == true ? 'w-[0%] left-[-40%] transition-all  bg-[white] sticky top-[25%]  max-h-[90vh]' : 'min-w-[20%] bg-[white] sticky top-[25%] left-0 max-h-[90vh] px-[2rem] transition-all'}>
-        <SideMenu />
-        </div>
-            <div id="body" className="px-[4rem] py-[2rem]">
-                <div className="justify-center items-center content-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[2rem] w-[100%]">
+        <div id="product-nav" className={toggleBar == true ? 'w-[0%] left-[-40%] transition-all  absolute   bg-[white]  md:top-[25%]  max-h-[100vh]' : 'min-w-[20%] bg-[#20201fb4] z-[100000]  xl:top-[25.8%] left-0 lg:h-[75vh] block h-[81vh] overflow-auto px-[2rem] transition-all fixed text-white '}>
+          <SideMenu />
+        </div> 
+            
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[2rem] w-[100%] px-[4rem]">
                 {
                     
                     categoriesList.map((category) => {
@@ -68,7 +68,7 @@ function MarketBody() {
                  </div>
                
              </div>
-    </div>
+ 
     
     </>
   )
