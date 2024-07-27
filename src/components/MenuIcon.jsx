@@ -1,9 +1,10 @@
 
+
 // eslint-disable-next-line react/prop-types
 function MenuIcon({children , id , label , icon , categoriesClick , setCategoriesClick , priceClick , setPriceClick , ratingClick , setRatingClick}) {
   
   return (
-    <div id={id} className="">
+    <div id={id} className="" >
     <div id="heading" className="flex gap-[1rem] py-[1rem] hover:cursor-pointer" onClick={() => {
       if(id=='category') setCategoriesClick(!categoriesClick)
       if(id == 'price') setPriceClick(!priceClick)

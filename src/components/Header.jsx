@@ -63,7 +63,7 @@ function Header() {
         // </div> : ''
         }
 
-        <div id="menu" className='font-[500] text-[#000000ac] text-[1.6rem]  gap-[2.5rem] hover:cursor-pointer hidden sm:flex sm:visible'>
+        <div id="menu" className='font-[500] text-[#000000ac] text-[1.6rem]  gap-[2.5rem] hover:cursor-pointer hidden sm:flex sm:visible' >
             <Link to={'/'} >Home</Link>
             <Link to={'/market-place'}>Marketplace </Link>
             <Link to={'/wishlist-pages'} className='flex' onClick={() => 
@@ -113,7 +113,9 @@ function Header() {
 
     </div>
     <div id="humbuger-menu" className={menuClick == true ? 'md:hidden top-[100%]  w-[100%] h-[90vh] bg-[#252525e0] absolute py-[12rem]' : 'h-[0px] overflow-auto bg-[#252525e0] absolute w-[100%] md:hidden'}>
-        <div id="menu" className=' text-[3rem] font-[600]  gap-[5rem] hover:cursor-pointer flex flex-col items-center text-white'>
+        <div id="menu" className=' text-[3rem] font-[600]  gap-[5rem] hover:cursor-pointer flex flex-col items-center text-white' onClick={() => {
+          setMenuClick(!menuClick)
+        }}>
         <Link to={'/'} >Home</Link>
         <Link to={'/market-place'}>Marketplace </Link>
         <Link to={'/wishlist-pages'} className='flex items-center gap-[1rem]' onClick={() => 

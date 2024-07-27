@@ -4,6 +4,7 @@ import { CiFilter} from "react-icons/ci";
 import MenuIcon from "./MenuIcon";
 import { useContext, useEffect, useState } from "react";
 import  {MarketFilter }  from '../context/MarketFilter'
+import { AppConotext } from "../context/filterDataProvider";
 
 
 function SideMenu() {
@@ -37,6 +38,7 @@ function SideMenu() {
     const [checkPrice , setCheckPrice] = useState([])
     const [checkRating , setCheckRating] = useState([])
     const {setCategoriesList , setPriceRange , setRatingRange } = useContext(MarketFilter)
+    const {toggleBar , setToggleBar} = useContext(AppConotext)
     
     useEffect(( )=> {
         setCategoriesList(checkMenu.length >0 ? checkMenu : categories)
@@ -70,7 +72,9 @@ function SideMenu() {
                     
                     
                 }} type="checkbox" id={category} className="checkbox-input hover:cursor-pointer"/>
-                <label className="hover:cursor-pointer w-[100%]" htmlFor={category} >{category}</label>
+                <label onClick={() =>{
+                    setToggleBar(!toggleBar)
+                }}  className="hover:cursor-pointer w-[100%]"  htmlFor={category} >{category}</label>
                  </div>
                }) : ''
             }
@@ -94,7 +98,9 @@ function SideMenu() {
                         setCheckPrice((prev) => prev.filter((item) => item!=price))
                     }
                 }} type="checkbox" id={price} className="checkbox-input hover:cursor-pointer"/>
-                <label className="hover:cursor-pointer w-[100%]" htmlFor={price} >{price}</label>
+                <label onClick={() =>{
+                    setToggleBar(!toggleBar)
+                }}  className="hover:cursor-pointer w-[100%]" htmlFor={price} >{price}</label>
                  </div>
                }) : ''
             }
@@ -115,7 +121,9 @@ function SideMenu() {
                     }
                     
                 }} type="radio" name="radio" radioGroup="rating" id={rating} className="checkbox-input hover:cursor-pointer"/>
-                <label className="hover:cursor-pointer w-[100%]" htmlFor={rating} >{rating}</label>
+                <label onClick={() =>{
+                    setToggleBar(!toggleBar)
+                }}  className="hover:cursor-pointer w-[100%]" htmlFor={rating} >{rating}</label>
                  </div>
                }) : ''
             }
