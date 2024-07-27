@@ -15,7 +15,7 @@ function HeroSection() {
   return (
     <div className="lg:max-w-[138rem]  sm:grid-cols-1 grid md:grid-cols-2  mx-auto bg-fixed sm:px-[0rem] ">
         <div id="left-section" className="lg:p-[2rem] p-[2rem] flex flex-col lg:pt-[4rem] bg-fixed sm:items-start items-center">
-            <div id="subheading" className="bg-[white] text-[1.8rem] font-[400] md:mt-[6rem] mt-[3rem] max-w-[27rem]">
+            <div id="subheading" className="bg-[white] text-[1.8rem] font-[400] md:mt-[6rem] mt-[3rem] lg:max-w-[27rem] max-w-[30rem]">
                 <h1>#1 ECOMMERCE PLATFORM 2024</h1>
             </div>
             <div id="heading" className="font-[600] mt-[2rem]">
