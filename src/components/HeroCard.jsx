@@ -32,7 +32,7 @@ function HeroCard({id , image , price , title , description , rating , cartlistS
     }
 
   return (
-    <div id="product" className="py-[1rem] shadow-lg px-[2rem] grid-cols-1 items-center justify-center grid sm:grid-cols-2 xl:h-[43rem] lg:h-[50rem] bg-[#ffffffc3] overflow-hidden rounded-br-[5rem] max-h-[55rem]" key={id}>
+    <div id="product" className="py-[1rem] shadow-lg px-[2rem] grid-cols-1 items-center justify-center grid sm:grid-cols-2 lg:h-[45rem] sm:gap-[2rem] bg-[#ffffffc3] overflow-hidden rounded-br-[5rem] " key={id}>
     <div id="img" className='w-[50%] sm:w-[100%] sm:h-[75%] rounded-[2rem] bg-[white] grid place-content-center mt-[3rem] mx-auto sm:mx-0 lg:mt-[1rem] sm:px-[1rem] sm:my-0'>
         <img className=" w-[100%] sm:h-[100%] rounded-[2rem] " src={image} alt="" /> 
     </div>
@@ -53,15 +53,15 @@ function HeroCard({id , image , price , title , description , rating , cartlistS
                 }) : ''
             }
         </div>
-        <div id="button " className='flex mb-[4rem] flex-col gap-[2rem] mt-[1.5rem]'>
-        <div id="cart-bnt" onClick={cartHandler}>
+        <div id="button " className='flex  sm:mb-[4rem] flex-col gap-[2rem] mt-[1.5rem]'>
+        <div className='mx-auto sm:mx-0' id="cart-bnt" onClick={cartHandler}>
             <Button 
                 label={`${cartlistStatus == true ? 'Remove to Cartlist' : 'Add to Cartlist'}`}
                 bgColor={'bg-[#123f65]'}
                 
             />
         </div>
-        <div id="wishlist-btn" onClick={wishListHandler}>
+        <div className='mx-auto sm:mx-0' id="wishlist-btn" onClick={wishListHandler}>
             <Button 
                 label={`${wishlistStatus == true ? 'Remove to Wishlst' : 'Add to Wishlist'}`}
                 bgColor={'bg-[#341]'}

@@ -33,7 +33,7 @@ function HeroSection() {
             </div>
         </div>
 
-        <div id="right-section" className="px-[5rem] pt-[5rem]">
+        <div id="right-section" className="lg:px-[5rem] p-[1rem] pt-[5rem]">
             <div id="card" className="w-[100%] ">
 
                 <header className="flex justify-between py-[1.5rem] px-[3rem] font-[600] text-[2.4rem] bg-[#d2c2c27d] rounded-tl-[5rem] items-center">

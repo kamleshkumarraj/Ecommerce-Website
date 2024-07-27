@@ -59,7 +59,7 @@ function Header() {
             
         </div> : ''}
 
-        <div id="menu" className='font-[500] text-[#000000ac] text-[1.6rem] flex gap-[2.5rem] hover:cursor-pointer hidden'>
+        <div id="menu" className='font-[500] text-[#000000ac] text-[1.6rem]  gap-[2.5rem] hover:cursor-pointer hidden md:flex md:visible'>
             <Link to={'/'} >Home</Link>
             <Link to={'/market-place'}>Marketplace </Link>
             <Link to={'/wishlist-pages'} className='flex' onClick={() => 

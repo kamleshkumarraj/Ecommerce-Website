@@ -36,7 +36,7 @@ function MarketBody() {
         <SideMenu />
         </div>
             <div id="body" className="px-[4rem] py-[2rem]">
-                <div className=" grid grid-cols-4 gap-[2rem]">
+                <div className="justify-center items-center content-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[2rem] w-[100%]">
                 {
                     
                     categoriesList.map((category) => {
