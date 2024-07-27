@@ -17,7 +17,7 @@ function MarketBody() {
     
   return (
     <>
-    <div id='product-header' className="flex sticky top-[12.7%] xl:top-[16.8%] z-[100000] bg-[#20201f] text-white">
+    <div id='product-header' className="flex sticky top-[12.4rem] xl:top-[16.9%] z-[100000] bg-[#20201f] text-white">
     <div className="my-[2rem] mx-[4rem] hover:cursor-pointer">
     {
       toggleBar == false ? <RxCross1 size={'2.4rem'} onClick={() => {
@@ -32,7 +32,7 @@ function MarketBody() {
     </div>
     <div id="market" className="relative flex overflow-hidden bg-sky-100 py-[2rem]">
         
-        <div id="product-nav" className={toggleBar == true ? 'w-[0%] left-[-40%] transition-all  absolute   bg-[white]  md:top-[25%]  max-h-[100vh]' : 'min-w-[20%] bg-[#20201fb4] z-[100000]  xl:top-[25.8%] left-0 lg:h-[75vh] block h-[81vh] overflow-auto px-[2rem] transition-all fixed text-white '}>
+        <div id="product-nav" className={toggleBar == true ? 'w-[0%] left-[-40%] transition-all  absolute   bg-[white]  md:top-[25%]  max-h-[100vh]' : 'min-w-[20%] bg-[#20201fb4] z-[100000]  xl:top-[25.6%] left-0 lg:h-[75vh] block h-[81vh] overflow-auto px-[2rem] transition-all fixed text-white top-[18.8rem]'}>
           <SideMenu />
         </div> 
             

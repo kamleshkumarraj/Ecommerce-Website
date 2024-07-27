@@ -5,7 +5,9 @@ import FilterProvider from "../context/MarketFilter"
 function MarketPage() {
   return (
     <FilterProvider>
-        <MarketBody />
+        <div id="market-body" className="w-[100%] relative">
+          <MarketBody />
+        </div>
     </FilterProvider>
   )
 }
