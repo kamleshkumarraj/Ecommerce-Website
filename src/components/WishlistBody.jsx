@@ -6,9 +6,9 @@ function WishlistBody() {
     const {filteredWishlistData} = useContext(AppConotext)
     let totalPrice = 0;
   return (
-    <div id="cart-container" className="w-[100%] rounded-b-[2rem] bg-[#d2aba28f] py-[2rem] mx-[2rem] relative">
+    <div id="wishlist-container" className="w-[100%] rounded-b-[2rem] bg-[#d2aba28f] py-[2rem] mx-[2rem] relative">
       
-        <div id="cart-body" className="">
+        <div id="wishlist-body" className="">
           {
             filteredWishlistData.length != 0 ? 
               filteredWishlistData.map((wishlistItem) => {

@@ -8,6 +8,7 @@ import { TiStarFullOutline } from "react-icons/ti";
 import { FaRegStar } from "react-icons/fa6";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
 function DetailsProduct({img,product , productItem , setImg}) {
     
@@ -137,10 +138,12 @@ function DetailsProduct({img,product , productItem , setImg}) {
                     <p className="warranty text-[1.8rem] font-[500]">Warranty : {product.warrantyInformation}</p>
                 </div>
                 <div id="btn" className="flex gap-[2rem] my-[2rem]">
-                    <Button 
-                    label={"Buy Now"}
-                    bgColor={'bg-[#E5A018]'}
-                    />
+                    <Link to={'/productlist-pages/product-details/buy-page'}>
+                        <Button 
+                        label={"Buy Now"}
+                        bgColor={'bg-[#E5A018]'}
+                        />
+                    </Link>
                     <div id="cart-btn" onClick={cartlistHandler}>
                         <Button 
                         label={product.cartStatus == true ? 'Remove to Cart' : 'Add to Cart'}

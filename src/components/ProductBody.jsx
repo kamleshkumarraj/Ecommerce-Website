@@ -9,8 +9,8 @@ function ProductBody() {
     
   return (
     <>
-        <div id="market-body" className="flex ">
-        
+        <div id="market-body" className="flex">
+     
             <div id="product-container" className="w-[100%] mx-auto py-[1.5rem] grid grid-cols-4 gap-[2rem] max">
         {
             filteredData.length != 0 ? filteredData.map((product) => {

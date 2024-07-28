@@ -13,10 +13,12 @@ import './style.css'
 import ProductList from './pages/ProductList.jsx';
 import ProductsDetails from './pages/ProductDetails.page.jsx';
 import MarketPage from './pages/MarketPage.jsx';
+import DeliveryForm from './components/BuyNow.jsx';
+
 
 const router = createBrowserRouter([{
   path : '/',
-  element : <App />,
+  element : <App />,  
   errorElement : <Error />,
   children : [
     {
@@ -44,6 +46,10 @@ const router = createBrowserRouter([{
       element : <ProductsDetails /> 
    },
    {
+      path : '/:productlist-pages/:product-details/:buy-page',
+      element : <DeliveryForm />
+   },
+   {
       path : '/market-place',
       element : <MarketPage />
    }
@@ -51,7 +57,6 @@ const router = createBrowserRouter([{
 }])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>

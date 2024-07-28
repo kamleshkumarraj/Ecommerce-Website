@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { resetCategoryCartStatus, resetCategorywishlistStatus, setCategoryCartStatus, setCategoryWishlistStatus } from "../store/Slices/AllCategoryProducts";
 import { addWishlistItem, removeWishlistItem } from "../store/Slices/WishlistItem";
 import { addCartItem, removeCartItem } from "../store/Slices/AddCart";
+import { toast } from "react-toastify";
 
 // eslint-disable-next-line react/prop-types
 function MarketCart({ id , rating , image , price ,title , category , wishlistStatus , cartlistStatus}) {
@@ -15,20 +16,24 @@ function MarketCart({ id , rating , image , price ,title , category , wishlistSt
         if(wishlistStatus){
           dispatch(resetCategorywishlistStatus({id , status :false , category}))
           dispatch(removeWishlistItem({id , status : false}))
+          toast.success("product is remove successfully from wishlist")
         }
         else{
           dispatch(addWishlistItem({id , status : true , quantity :1 , image , price , category , title , rating}))
           dispatch(setCategoryWishlistStatus({id , status : true , category}))
+          toast.success("product is add successfully in wishlist")
         }
       }
       const cartlistHandler = (category) =>{
         if(cartlistStatus){
           dispatch(resetCategoryCartStatus({id , status :false , category}))
           dispatch(removeCartItem({id , status : false}))
+          toast.success("product is remove successfully from cartlist")
         }
         else{
           dispatch(addCartItem({id , status : true , quantity :1 , image , price , category , title , rating}))
           dispatch(setCategoryCartStatus({id , status : true , category}))
+          toast.success("product is add successfully in cartlist")
         }
       }
     const starList = [1,2,3,4,5]
@@ -37,7 +42,7 @@ function MarketCart({ id , rating , image , price ,title , category , wishlistSt
     <div id="product" className="overflow-hidden px-[2rem] shadow-2xl bg-[white] rounded-[2rem] max-w-[1fr]  py-[2rem] flex flex-col justify-center relative" key={id}  >
       <img className="max-h-[20rem] mx-auto " src={image} alt="" /> 
       <p className="text-[2rem] front-[500] my-[1rem]">₹{price}</p>
-      <div id="weashlist-heart" className="hover:cursor-pointer" 
+      <div id="weashlist-heart" className="hover:cursor-pointer z-[1]" 
       >
       {
         wishlistStatus == true ?  
