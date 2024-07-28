@@ -12,7 +12,7 @@ function Wishlist() {
         </div>
 
           <div id="Wishlist-conatainer-heading" className="max-w-[138rem] mx-auto mt-[1rem] relative">
-            <div id="heading" className="w-[100%] px-[4rem] mx-[2rem] py-[2rem] bg-[#d2aba28f] flex justify-between rounded-t-[2rem] sticky top-0 left-0">
+            <div id="heading" className="w-[100%] px-[4rem]  py-[2rem] bg-[#d2aba28f] flex justify-between rounded-t-[2rem] sticky top-0 left-0">
             <div id="product-name" className="text-[1.8rem] font-[700] w-[50%]">
                 <h1 className="">Product</h1>
             </div>

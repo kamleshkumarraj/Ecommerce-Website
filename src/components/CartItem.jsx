@@ -7,7 +7,6 @@ import {
   decreaseCartQuantity,
   increaseCartQuantity,
 } from "../store/Slices/AddCart";
-import { resetCartStatus } from "../store/Slices/ProductList";
 import { resetCategoryCartStatus } from "../store/Slices/AllCategoryProducts";
 import { toast } from "react-toastify";
 
@@ -19,7 +18,7 @@ function CartItem({ image, quantity, price, id, category, title, rating }) {
   const dispatch = useDispatch();
   return (
     <>
-      <div className="max-w-[138rem] sm:mx-auto p-[2rem] flex flex-col justify-between sm:items-center items-center gap-[1rem] sm:flex-row"
+      <div className="max-w-[138rem] sm:mx-auto  flex flex-col justify-between sm:items-center items-center gap-[1rem] sm:flex-row"
         id="cart-item"
         key={id}
       >
@@ -81,14 +80,11 @@ function CartItem({ image, quantity, price, id, category, title, rating }) {
               className="font-[600] text-[2.8rem] p-[.5rem] grid place-content-center py-[-2rem] border-[1px] rounded-[.5rem] hover:cursor-pointer"
               onClick={() => {
                 if (quantity == 1) {
-                  dispatch(resetCartStatus({ status: false, id }));
-                  dispatch(
-                    resetCategoryCartStatus({ id, status: false, category })
-                  );
+                  dispatch(resetCategoryCartStatus({ id, status: false, category }));
+                  dispatch(checkQty());
                   toast.warning("product is removed from cartlist");
                 }
                 dispatch(decreaseCartQuantity({ id }));
-                dispatch(checkQty());
                 toast.success("Quantity is decreased by 1");
               }}
             >

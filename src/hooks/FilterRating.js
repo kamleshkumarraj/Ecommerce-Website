@@ -1,7 +1,7 @@
 
 
 function useFilterRating(allData , category , query){
-    console.log(allData)
+    
     const filteredRatingData ={}
     category.map((category) => {
        let filterrating =  query.map((query) =>{

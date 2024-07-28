@@ -10,7 +10,7 @@ function CartBody() {
     const {filteredCartData} = useContext(AppConotext)
     
   return (
-    <div id="cart-container" className="w-[100%] rounded-b-[2rem] bg-[#97a0aee2] py-[2rem] sm:mx-[2rem] relative">
+    <div id="cart-container" className="w-[100%] rounded-b-[2rem] bg-[#97a0aee2] py-[2rem]  relative">
       
         <div id="cart-body" className="">
           {

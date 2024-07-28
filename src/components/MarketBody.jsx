@@ -13,7 +13,6 @@ import { Bounce, ToastContainer } from "react-toastify"
 function MarketBody() {
   const {categoriesList , allCategoriesProducts , priceRange , filteredData , ratingRange , filteredRatingData } = useContext(MarketFilter)
   const {toggleBar , setToggleBar} = useContext(AppConotext)
-  console.log(ratingRange)
 
    
     

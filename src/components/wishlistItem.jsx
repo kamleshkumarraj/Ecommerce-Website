@@ -6,6 +6,7 @@ import { FiMinus, FiPlus } from "react-icons/fi";
 import { checkWishlistQty, decreaseWishlistQuantity, increaseWishlistQuantity } from "../store/Slices/WishlistItem";
 import { resetCategorywishlistStatus } from "../store/Slices/AllCategoryProducts";
 import { toast } from "react-toastify";
+import { checkQty } from "../store/Slices/AddCart";
 
 // eslint-disable-next-line react/prop-types
 function WishlistItem({image , quantity , price , id , category , title , rating}) {
@@ -56,9 +57,10 @@ function WishlistItem({image , quantity , price , id , category , title , rating
                     dispatch(resetCategorywishlistStatus({id , status : false , category}))
                     toast.error("product is removed from wishlist")
                 }
-                dispatch(decreaseWishlistQuantity({id}))
-                dispatch(checkWishlistQty())
-                toast.success("Quantity is decreased by 1")
+                    dispatch(decreaseWishlistQuantity({id}))
+                    dispatch(checkWishlistQty())
+                    toast.success("Quantity is decreased by 1")
+                
                 
             }}> <FiMinus size={'2rem'} /> </div>
             </div>

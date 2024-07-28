@@ -21,8 +21,6 @@ function CustomerDetails() {
     
       const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission
-        console.log('Form submitted:', formData);
       };
   return (
     <div className=" p-6 mx-auto bg-white rounded-lg shadow-md w-[100%]">

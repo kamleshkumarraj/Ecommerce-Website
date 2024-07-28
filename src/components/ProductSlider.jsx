@@ -5,7 +5,7 @@ import Slider from "./BannerSlider/Slider"
 function ProductSlider({allCategory,label , allCategoryProduct , setImg , categoryType}) {
   return (
     <div id="sports-sports" className="my-[2rem]">
-        <h1 className="text-[2.6rem] font-[600] py-[1rem] px-[6rem]">{label}</h1>
+        <h1 className="text-[2.6rem] font-[600] py-[1rem] md:px-[6rem] ">{label}</h1>
         {
             // eslint-disable-next-line react/prop-types
             allCategory.map((category , idx) => {

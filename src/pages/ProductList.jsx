@@ -9,7 +9,7 @@ function ProductList() {
     const allCategoriesProducts = useSelector(getAllCategoriesProducts)
     const dataList = allCategoriesProducts[category];
   return (
-    <div id="product-container" className="w-[100%] mx-auto px-[4rem] py-[1.5rem] grid grid-cols-4 gap-[2rem] max">
+    <div id="product-container" className="max-w-[138rem] mx-auto px-[2rem] py-[1.5rem] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[2rem] justify-center">
     {
         dataList ? dataList.map((product) => {
             return (

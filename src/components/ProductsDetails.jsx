@@ -1,7 +1,6 @@
 import {  useState } from "react";
 import { IoMdArrowRoundBack } from "react-icons/io"
 import { Link, useLocation} from "react-router-dom"
-import ProductBody from "./ProductBody";
 import {getAllCategoriesProducts, getSpecificProduct} from '../store/Slices/AllCategoryProducts'; 
 import { useSelector } from "react-redux";
 import DetailsProduct from "./DetailsProduct";
@@ -65,10 +64,7 @@ function ProductsDetails() {
             />
         </div>
 
-        <div id="top-brands" className="max-w-[138rem] mx-auto p-[2rem]">
-            <h1 className="text-[2.6rem] font-[600] py-[1rem]">Top Brands Product</h1>
-            <ProductBody />
-        </div>
+        
 
         
     </div>

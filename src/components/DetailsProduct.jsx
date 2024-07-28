@@ -41,7 +41,7 @@ function DetailsProduct({img,product , productItem , setImg}) {
         }
       }
   return (
-    <div id="top-bar" className="grid grid-cols-2 px-[2rem] max-w-[138rem] mx-auto min-h-[40rem] mb-[2rem] gap-[5rem] ">
+    <div id="top-bar" className="grid md:grid-cols-2 grid-cols-1 px-[2rem] max-w-[138rem] mx-auto min-h-[40rem] mb-[2rem] gap-[5rem] ">
             <div id="img" className="w-[100%] flex flex-col border-[.5px] border-[#00000121] rounded-[2rem] p-[2rem] flex-wrap items-start">
                 <div id="big-image" className="w-[100%]  ">
                     <img className="w-[70%] max-h-[90vh] mx-auto" src={img} alt="" />
@@ -61,7 +61,7 @@ function DetailsProduct({img,product , productItem , setImg}) {
                     }
                 </div>
             </div>
-            <div id="detials" className="py-[4rem] px-[2rem] flex flex-col gap-[1rem] text-[1.6rem] font-[500]">
+            <div id="detials" className="py-[4rem] md:px-[2rem] flex flex-col gap-[1rem] text-[1.6rem] font-[500]">
                 <h1 className="text-[2.4rem] font-[600]" id="title"><i className="font-[400]">Brands : &nbsp;</i>{product.title}</h1>
                 <p className="text-[1.6rem] font-[500] from-neutral-500">{product.description}</p>
                 <div id="rating-box" className="my-[1.5rem]">
@@ -91,7 +91,7 @@ function DetailsProduct({img,product , productItem , setImg}) {
                 </div>
                 <hr className="my-[.5rem]"/>
                 
-                <div id="size-qty" className="flex justify-around">
+                <div id="size-qty" className="flex justify-start md:justify-around flex-wrap gap-[2rem]">
                 <div id="size">
                 <label className="text-[1.8rem] font-[600]" htmlFor="select">Select : </label> <br />
                     <select className="border-[1px] my-[.5rem] px-[2rem] py-[.5rem] text-[1.8rem] w-[18rem]" name="select" id="">
@@ -102,7 +102,7 @@ function DetailsProduct({img,product , productItem , setImg}) {
                 </div>
                 <div id="quantity" className=" gap-[1rem] justify-center pr-[1rem] flex flex-col">
                 <h1 className="text-[2rem]">Quantity : </h1> 
-                <div id="btn" className="flex gap-[.5rem]">
+                <div id="btn" className="flex md:gap-[.5rem] flex-wrap gap-[1rem]">
                         <div id="increaseBtn" className="font-[600] text-[2.8rem] p-[.5rem] grid place-content-center py-[-2rem] border-[1px] rounded-[.5rem] hover:cursor-pointer"  onClick={() => {
                             quantity += 1;
                             setQty(quantity)
@@ -137,7 +137,7 @@ function DetailsProduct({img,product , productItem , setImg}) {
                 <div id="warranty">
                     <p className="warranty text-[1.8rem] font-[500]">Warranty : {product.warrantyInformation}</p>
                 </div>
-                <div id="btn" className="flex gap-[2rem] my-[2rem]">
+                <div id="btn" className="flex gap-[2rem] my-[2rem] flex-col sm:flex-row">
                     <Link to={'/productlist-pages/product-details/buy-page'}>
                         <Button 
                         label={"Buy Now"}

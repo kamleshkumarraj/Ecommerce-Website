@@ -13,7 +13,7 @@ function CartList() {
         </div>
 
           <div id="cart-conatainer-heading" className="max-w-[138rem] mx-auto mt-[1rem] relative hidden sm:block">
-            <div id="heading" className="w-[100%] px-[4rem] mx-[2rem] py-[2rem] bg-[#A0A8B4] flex justify-between rounded-t-[2rem] sticky top-0 left-0">
+            <div id="heading" className="w-[100%] px-[4rem]  py-[2rem] bg-[#A0A8B4] flex justify-between rounded-t-[2rem] sticky top-0 left-0">
             <div id="product-name" className="text-[1.8rem] font-[700] w-[50%]">
                 <h1>Product</h1>
             </div>

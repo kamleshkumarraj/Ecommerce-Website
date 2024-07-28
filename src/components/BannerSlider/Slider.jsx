@@ -12,13 +12,28 @@ import './styles.css';
 // import required modules
 import { Autoplay , FreeMode , Pagination } from 'swiper/modules';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 
 function Slider({data  , setImg  , category}) {
+  const [WindowWidth , setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() =>{
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  },[])
   return (
     <div className=''>
     <Swiper 
-        slidesPerView={6}
+        slidesPerView={WindowWidth<=256 ? 1 : WindowWidth <=512 ? 2 : WindowWidth<=768 ? 3 : WindowWidth <= 1024 ? 4 : WindowWidth <= 1280 ? 5 : WindowWidth <=1576 ? 6 : 7}
         loop = {true}
         autoplay={{
         delay: 1000,
@@ -26,11 +41,10 @@ function Slider({data  , setImg  , category}) {
       }}
       
       freeMode = {true}
-      pagination = {{
-        clickable : true
-      }}
+     
+     
     
-       modules={[ Autoplay , FreeMode , Pagination]} className="mySwiper">
+       modules={[ Autoplay , FreeMode]} className="mySwiper">
         {
             data.length > 0  && data?.map((item , idx) => {
                 return <SwiperSlide key={idx} onClick={() => {

@@ -92,7 +92,7 @@ function SideMenu() {
                 return <div key={price} className="flex checkbox-container gap-[.5rem] hover:cursor-pointer" >
                 <input onClick={(e) => {
                     if(e.target.checked) {setCheckPrice((prev) => [...prev , price])
-                    console.log(checkPrice)
+                    
                     }
                     else{
                         setCheckPrice((prev) => prev.filter((item) => item!=price))
